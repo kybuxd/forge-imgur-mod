@@ -2,6 +2,7 @@ package dev.kybu.mods.imgurupload;
 
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+import dev.kybu.mods.imgurupload.commands.FileToAlbumCommand;
 import dev.kybu.mods.imgurupload.commands.FlushLastCommand;
 import dev.kybu.mods.imgurupload.commands.SaveLastCommand;
 import dev.kybu.mods.imgurupload.commands.ScreenCacheCommand;
@@ -51,5 +52,6 @@ public class ImgurUploadMod
         ClientCommandHandler.instance.registerCommand(new SaveLastCommand());
         ClientCommandHandler.instance.registerCommand(new FlushLastCommand());
         ClientCommandHandler.instance.registerCommand(new ScreenCacheCommand());
+        ClientCommandHandler.instance.registerCommand(new FileToAlbumCommand());
     }
 }

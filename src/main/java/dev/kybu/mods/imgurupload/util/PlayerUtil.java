@@ -13,13 +13,17 @@ public class PlayerUtil {
     public static void sendClientMessaage(final String message, final Consumer<ITextComponent> modifyComponent) {
         final TextFormatting grayColor = colorCodeToTextFormatting("7"), yellowColor = colorCodeToTextFormatting("e");
         ITextComponent textComponent = new TextComponentString(
-                grayColor + "[" + yellowColor + "Imgur" + grayColor + "] " + message
+                grayColor + "[" + yellowColor + "Imgur" + grayColor + "] " + message.replace("§", "\u00a7")
         );
         if(modifyComponent != null) {
             modifyComponent.accept(textComponent);
         }
 
         Minecraft.getMinecraft().player.sendMessage(textComponent);
+    }
+
+    public static void sendMessage(final String message) {
+        Minecraft.getMinecraft().player.sendMessage(new TextComponentString(message.replace("§", "\u00a7")));
     }
 
     public static void sendClientMessaage(final String message) {
